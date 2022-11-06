@@ -1,0 +1,34 @@
+{
+    "name": "coderstudios/laravel-bootstrap",
+    "description": "Laravel Bootstrap by Coder Studios",
+    "require": {
+        "php": ">=7.4",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "authors": [
+        {
+            "name": "Coder Studios",
+            "email": "thedevelopers@coderstudios.com"
+        }
+    ],
+    "keywords": [  
+        "bootstrap",
+        "laravel",
+        "coderstudios"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CoderStudios\\LaravelBootstrap\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CoderStudios\\LaravelBootstrap\\LaravelBootstrapServiceProvider"
+            ]
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
