@@ -53,13 +53,13 @@ class DBBackupClear extends Command
      */
     public function handle()
     {
-        $process = new Process('');
         $path = config('laravel-bootstrap.backup_dir');
         $command = sprintf(
             'find %s -maxdepth 1 -type f -ctime +30 -name \'*.gz\' -execdir rm -- \'{}\' \;',
             $path
         );
-        $process->setCommandLine($command);
+        $process = new Process([]);
+        $process->fromShellCommandline($command);
         $process->run();
     }
 }
