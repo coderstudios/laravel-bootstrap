@@ -61,7 +61,7 @@ class LaravelBootstrapServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__.'/../config/laravel-bootstrap.php',
-            'laravelinit'
+            'laravel-bootstrap'
         );
     }
 }
