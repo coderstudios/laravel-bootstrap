@@ -36,8 +36,14 @@ trait Filled
             if (!empty($casts)) {
                 foreach ($casts as $attribute => $cast) {
                     if ('serialize' == $cast) {
-                        if ($request->has($attribute) && !empty($request->get($attribute))) {
+                        if ($request->has($attribute) && !empty($request->get($attribute)) && 1 == $request->get('serialized')) {
                             $data[$attribute] = serialize($request->get($attribute));
+                        } elseif ($request->has($attribute) && !empty($request->get($attribute)) && is_array($request->get($attribute))) {
+                            $data[$attribute] = serialize($request->get($attribute));
+                        } elseif ($request->has($attribute) && !empty($request->get($attribute))) {
+                            $data[$attribute] = $request->get($attribute);
+                        } elseif ($request->has($attribute) && empty($request->get($attribute))) {
+                            $data[$attribute] = '';
                         } else {
                             unset($data[$attribute]);
                         }
@@ -47,6 +53,8 @@ trait Filled
                             if (isset($data[$attribute]) && !is_numeric($data[$attribute])) {
                                 unset($data[$attribute]);
                             }
+                        } elseif ($request->has($attribute) && strlen($request->get($attribute)) && is_numeric($request->get($attribute))) {
+                            $data[$attribute] = $request->get($attribute);
                         }
                     }
                     if ('float' == $cast) {

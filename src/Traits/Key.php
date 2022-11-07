@@ -28,4 +28,20 @@ trait Key
 
         return $prefix.md5(app()->request->getUri().'_'.$str.$user);
     }
+
+    public function slugify($params)
+    {
+        $str = '';
+        foreach ($params as $item) {
+            if (is_array($item)) {
+                foreach ($item as $i) {
+                    $str .= $i.'-';
+                }
+            } else {
+                $str .= $item.'-';
+            }
+        }
+
+        return $str;
+    }
 }
