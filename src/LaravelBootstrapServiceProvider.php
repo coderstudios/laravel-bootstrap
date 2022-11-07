@@ -19,7 +19,7 @@ namespace CoderStudios\LaravelBootstrap;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelInitServiceProvider extends ServiceProvider
+class LaravelBootstrapServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
