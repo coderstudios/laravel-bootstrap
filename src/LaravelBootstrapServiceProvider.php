@@ -36,6 +36,7 @@ class LaravelBootstrapServiceProvider extends ServiceProvider
 
         $this->commands([
             Commands\DBBackup::class,
+            Commands\DBBackupClear::class,
         ]);
     }
 
