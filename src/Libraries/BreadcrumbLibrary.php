@@ -63,6 +63,7 @@ class BreadcrumbLibrary
         }
         $html = '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
 
+        $count = 1;
         foreach ($items as $item) {
             $active = $parent_class = '';
             if (isset($item['active']) && true === $item['active']) {
@@ -83,6 +84,10 @@ class BreadcrumbLibrary
                 $html .= '</a>';
             }
             $html .= '</li>';
+            if ($count < count($items)) {
+                $html .= '<li>'.$item['separator'].'</li>';
+            }
+            ++$count;
         }
         $html .= '</ol></nav>';
 
