@@ -26,6 +26,8 @@ class LaravelBootstrapServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        require 'Helpers/Helper.php';
+
         $this->registerRoutes();
 
         $this->publishes([

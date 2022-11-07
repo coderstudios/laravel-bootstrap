@@ -18,10 +18,7 @@ if (!function_exists('ddSQL')) {
     function ddSQL($query)
     {
         if ('production' != config('app.env')) {
-            if ($query->getBindings()) {
-                dd(Str::replaceArray('?', $query->getBindings(), $query->toSql()));
-            }
-            dd($query->toSql());
+            dd($query->dd());
         }
     }
 }
